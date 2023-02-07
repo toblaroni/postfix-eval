@@ -1,4 +1,5 @@
 #include "stack.h"
+#include <stdlib.h>
 
 void initStack(Stack *s, int n) {
     s->elements = (int *) malloc(sizeof(int) * n); // Allocate memory to the stack
@@ -11,7 +12,7 @@ void initStack(Stack *s, int n) {
 int push(Stack *s, int n) {
     if (s->size < s->maxSize) {
         // Set value of ptr to n
-        s->stackPtr = n;
+        *s->stackPtr = n;
         // Increment ptr
         s->stackPtr ++;
         // Increment size of s
@@ -28,7 +29,7 @@ int pop(Stack *s, int *n) {
         // Decrease the stack pointer by one
         s->stackPtr --;
         // Get the element by dereferencing the pointer
-        n = *s->stackPtr;
+        *n = *s->stackPtr;
         s->size --;
         return 1;
     } else {
