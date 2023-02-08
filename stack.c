@@ -2,17 +2,17 @@
 #include <stdlib.h>
 
 void initStack(Stack *s, int n) {
-    s->elements = (int *) malloc(sizeof(int) * n); // Allocate memory to the stack
+    s->elements = (float *) malloc(sizeof(float) * n); // Allocate memory to the stack
     s->stackPtr = s->elements; // Set the stackptr to the start of the stack
     s->size = 0;
     s->maxSize = n;
 }
 
 // Stack s to be pushed to and int n to be pushed
-int push(Stack *s, int n) {
+int push(Stack *s, float n) {
     if (s->size < s->maxSize) {
         // Set value of ptr to n
-        *s->stackPtr = n;
+        *s->stackPtr =  n;
         // Increment ptr
         s->stackPtr ++;
         // Increment size of s
@@ -24,7 +24,7 @@ int push(Stack *s, int n) {
 }
 
 // Stack s to be popped and n to store popped val
-int pop(Stack *s, int *n) {
+int pop(Stack *s, float *n) {
     if (s->size != 0) {
         // Decrease the stack pointer by one
         s->stackPtr --;

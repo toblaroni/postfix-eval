@@ -10,7 +10,3 @@ Evaluates simple arithmetic expressions written in [Postfix](https://www.tutoria
 
 #### Info
 This was an exercise in implementing stacks and it was part of my compilers module. The strings that are accepted can contain +, -, \* and /.
-
-#### TODO
-- Change the stack so it accepts floats so that the division operator works.
-

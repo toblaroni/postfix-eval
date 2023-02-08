@@ -4,7 +4,7 @@
 #include "stack.h"
 #include <string.h>
 
-int dPop(Stack *s, int *n, int *m);
+int dPop(Stack *s, float *n, float *m);
 
 int main(int argc, char **argv) {
     if (argc > 2) return -1;
@@ -19,16 +19,15 @@ int main(int argc, char **argv) {
 
     for (int i = 0; i < len; i++) {
         char c = expression[i];
+        float val1, val2;
         switch (c) {
             case '+': 
             {
-                int val1, val2; // values to hold the popped numbers
-
                 // Check Operands are correct, pop the stack and assign to val1 and val2
                 if (!dPop(s, &val1, &val2)) return -1;
 
                 // Add numbers together and add result to stack
-                printf("Adding numbers %i and %i together\n", val1, val2);
+                printf("Adding numbers %f and %f together\n", val1, val2);
                 val1 += val2;
                 push(s, val1);
 
@@ -36,13 +35,11 @@ int main(int argc, char **argv) {
             }
             case '-':
             {
-                int val1, val2; // values to hold the popped numbers
-
                 // Check Operands are correct, pop the stack and assign to val1 and val2
                 if (!dPop(s, &val1, &val2)) return -1;
 
                 // Add numbers together and add result to stack
-                printf("Subtracting %i from %i\n", val1, val2);
+                printf("Subtracting %.2f from %.2f\n", val1, val2);
                 val2 -= val1;
                 push(s, val2);
 
@@ -50,13 +47,11 @@ int main(int argc, char **argv) {
             }
             case '*':
             {
-                int val1, val2; // values to hold the popped numbers
-
                 // Check Operands are correct, pop the stack and assign to val1 and val2
                 if (!dPop(s, &val1, &val2)) return -1;
 
                 // Add numbers together and add result to stack
-                printf("Multiplying numbers %i and %i together\n", val1, val2);
+                printf("Multiplying numbers %.2f and %.2f together\n", val1, val2);
                 val1 *= val2;
                 push(s, val1);
 
@@ -64,13 +59,11 @@ int main(int argc, char **argv) {
             }
             case '/':
             {
-                int val1, val2; // values to hold the popped numbers
-
                 // Check Operands are correct, pop the stack and assign to val1 and val2
                 if (!dPop(s, &val1, &val2)) return -1;
 
                 // Add numbers together and add result to stack
-                printf("Dividing %i by %i\n", val2, val1);
+                printf("Dividing %.2f by %.2f\n", val2, val1);
                 val2 /= val1;
                 push(s, val2);
 
@@ -83,23 +76,23 @@ int main(int argc, char **argv) {
                     printf("Illegal character %c\n", c);
                     return -1;
                 }
-                int num = atoi(&c);
+                float num = atoi(&c);
                 push(s, num); // Add the number to the stack (Non numerical c vals will add 0)
-                printf("Adding %i to stack\n", num);
+                printf("Adding %.2f to stack\n", num);
             }
         }
     }
 
     // Print the number in the stack
-    int result;
+    float result;
     pop(s, &result);
-    printf("Final sum = %i\n", result);
+    printf("Final sum = %.2f\n", 3. / 4.);
 
     return 0;
 }
 
 // Checks two values 
-int dPop(Stack *s, int *val1, int *val2) {
+int dPop(Stack *s, float *val1, float *val2) {
     // Pop the stack twice
     int popOne = pop(s, val1);
     int popTwo = pop(s, val2);
