@@ -3,7 +3,7 @@ Evaluates simple arithmetic expressions written in [Postfix](https://www.tutoria
 
 ### To Run
 - Type make
-- Then type ./main <string to be computed>
+- Then type ./main \<string to be computed>
 
 ### To clean
 - Type make clean
