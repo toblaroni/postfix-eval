@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
                 if (!dPop(s, &val1, &val2)) return -1;
 
                 // Add numbers together and add result to stack
-                printf("Adding numbers %f and %f together\n", val1, val2);
+                printf("Adding numbers %.2f and %.2f together\n", val1, val2);
                 val1 += val2;
                 push(s, val1);
 
@@ -86,7 +86,9 @@ int main(int argc, char **argv) {
     // Print the number in the stack
     float result;
     pop(s, &result);
-    printf("Final sum = %.2f\n", 3. / 4.);
+    printf("Final sum = %.2f\n", result);
+
+    free(s->elements);
 
     return 0;
 }
